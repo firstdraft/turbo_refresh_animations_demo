@@ -12,8 +12,8 @@
     </div>
     <%= button_to "Delete", [item.list, item], method: :delete, class: "btn btn-outline-danger btn-sm" %>
   </div>
-  <details>
-    <summary class="text-muted small">Edit</summary>
+  <details class="mt-2">
+    <summary class="text-muted small text-end">Edit</summary>
     <div class="mt-3">
       <%= render "items/form", item: item %>
     </div>
