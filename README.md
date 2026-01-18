@@ -1,24 +1,20 @@
-# README
+# Turbo Refresh Animations Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a companion demo app for the [Turbo Refresh Animations walkthrough](https://firstdraft.com/lessons/809-turbo-refresh-animations).
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+```bash
+bundle install
+rails db:migrate
+rails db:seed
+bin/dev
+```
 
-* System dependencies
+## About
 
-* Configuration
+This todo list app demonstrates the [turbo-refresh-animations](https://www.npmjs.com/package/turbo-refresh-animations) library, which adds:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Enter/exit/change animations** during Turbo morphs
+- **Stream-only protection** to preserve form state during broadcasts while still allowing navigation morphs
+- **Version tracking** for reliable change detection and stale data warnings
