@@ -28,6 +28,16 @@
   to { background-color: inherit; }
 }
 
+/* Change - outline flash (for elements with opaque backgrounds) */
+.turbo-refresh-change-outline {
+  animation: turbo-refresh-change-outline 800ms ease-out;
+}
+
+@keyframes turbo-refresh-change-outline {
+  from { box-shadow: inset 0 0 0 3px #FFC107; }
+  to { box-shadow: inset 0 0 0 3px transparent; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .turbo-refresh-enter,
   .turbo-refresh-change,
