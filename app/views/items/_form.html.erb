@@ -1,9 +1,16 @@
-<%= form_with(model: [item.list, item]) do |form| %>
-  <div class="mb-2">
-    <%= form.text_field :content, class: "form-control #{'is-invalid' if item.errors[:content].any?}", placeholder: "New item...", autofocus: true %>
-    <% if item.errors[:content].any? %>
-      <div class="invalid-feedback d-block"><%= item.errors[:content].first %></div>
-    <% end %>
-  </div>
-  <%= form.submit class: "btn btn-primary w-100" %>
+<%= tag.div id: (dom_id(item) if item.persisted?), class: ("list-group-item" if item.persisted?) do %>
+  <%= form_with(model: [item.list, item]) do |form| %>
+    <div class="mb-2">
+      <%= form.text_field :content, class: "form-control #{'is-invalid' if item.errors[:content].any?}", placeholder: "New item...", autofocus: true %>
+      <% if item.errors[:content].any? %>
+        <div class="invalid-feedback d-block"><%= item.errors[:content].first %></div>
+      <% end %>
+    </div>
+    <div class="d-flex gap-2">
+      <%= form.submit class: "btn btn-primary flex-grow-1" %>
+      <% if item.persisted? %>
+        <%= link_to "Cancel", [item.list, item], class: "btn btn-outline-secondary", data: { turbo_stream: true } %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
