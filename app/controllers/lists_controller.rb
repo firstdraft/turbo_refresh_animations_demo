@@ -3,7 +3,8 @@ class ListsController < ApplicationController
 
   # GET /lists
   def index
-    @lists = List.all
+    @list = List.new
+    @lists = List.order(:created_at)
   end
 
   # GET /lists/1
@@ -24,9 +25,10 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
-      redirect_to @list, notice: "List was successfully created."
+      redirect_to lists_url
     else
-      render :new, status: :unprocessable_content
+      @lists = List.order(:created_at)
+      render :index, status: :unprocessable_content
     end
   end
 

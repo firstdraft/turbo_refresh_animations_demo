@@ -1,7 +1,4 @@
-<div id="<%= dom_id list %>">
-  <div>
-    <strong>Title:</strong>
-    <%= list.title %>
-  </div>
-
-</div>
+<%= link_to list, class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center", id: dom_id(list) do %>
+  <%= list.title %>
+  <i class="bi bi-chevron-right"></i>
+<% end %>
