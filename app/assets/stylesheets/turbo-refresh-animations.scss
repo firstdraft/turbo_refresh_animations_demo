@@ -1,0 +1,48 @@
+/* Enter - fade in */
+.turbo-refresh-enter {
+  animation: turbo-refresh-enter 300ms ease-out;
+}
+
+@keyframes turbo-refresh-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Exit - fade out */
+.turbo-refresh-exit {
+  animation: turbo-refresh-exit 300ms ease-out forwards;
+}
+
+@keyframes turbo-refresh-exit {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Change - yellow background flash */
+.turbo-refresh-change {
+  animation: turbo-refresh-change 800ms ease-out;
+}
+
+@keyframes turbo-refresh-change {
+  from { background-color: #FFF3CD; }
+  to { background-color: inherit; }
+}
+
+/* Change - outline flash (for elements with opaque backgrounds) */
+.turbo-refresh-change-outline {
+  animation: turbo-refresh-change-outline 800ms ease-out;
+}
+
+@keyframes turbo-refresh-change-outline {
+  from { box-shadow: inset 0 0 0 3px #FFC107; }
+  to { box-shadow: inset 0 0 0 3px transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .turbo-refresh-enter,
+  .turbo-refresh-change,
+  .turbo-refresh-exit {
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+  }
+}

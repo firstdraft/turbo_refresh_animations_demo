@@ -5,5 +5,10 @@
       <div class="invalid-feedback d-block"><%= item.errors[:content].first %></div>
     <% end %>
   </div>
-  <%= form.submit class: "btn btn-primary w-100" %>
+  <div class="d-flex gap-2">
+    <%= form.submit class: "btn btn-primary flex-grow-1" %>
+    <% if item.persisted? %>
+      <%= link_to "Cancel", [item.list, item], class: "btn btn-outline-secondary", data: { turbo_stream: true } %>
+    <% end %>
+  </div>
 <% end %>

@@ -1,0 +1,9 @@
+<div id="list_header">
+  <div class="d-flex justify-content-between align-items-center">
+    <span id="list_title" data-turbo-refresh-animate data-turbo-refresh-version="<%= list.cache_key_with_version %>" data-turbo-refresh-change="turbo-refresh-change-outline"><%= list.title %></span>
+    <%= button_to "Delete", list, method: :delete, class: "btn btn-outline-danger btn-sm", data: { turbo_confirm: "Delete this list and all its items?" } %>
+  </div>
+  <div class="mt-2 text-end">
+    <%= link_to "Edit", edit_list_path(list), class: "text-muted small", data: { turbo_stream: true } %>
+  </div>
+</div>

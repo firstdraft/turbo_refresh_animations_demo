@@ -1,0 +1,9 @@
+<div
+  id="<%= dom_id(item) %>"
+  class="list-group-item"
+  data-turbo-refresh-animate
+  data-turbo-refresh-stream-permanent
+  data-turbo-refresh-version="<%= item.cache_key_with_version %>"
+>
+  <%= render "items/form", item: item %>
+</div>

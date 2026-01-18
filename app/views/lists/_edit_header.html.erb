@@ -1,0 +1,12 @@
+<div
+  id="list_header"
+  data-turbo-refresh-animate
+  data-turbo-refresh-stream-permanent
+  data-turbo-refresh-version="<%= list.cache_key_with_version %>"
+  data-turbo-refresh-change="turbo-refresh-change-outline"
+>
+  <%= render "form", list: list %>
+  <div class="mt-2 text-end">
+    <%= link_to "Cancel", list, class: "text-muted small", data: { turbo_stream: true } %>
+  </div>
+</div>
