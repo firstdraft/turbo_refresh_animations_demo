@@ -1,4 +1,4 @@
-<div class="list-group-item" id="<%= dom_id(item) %>">
+<div class="list-group-item" id="<%= dom_id(item) %>" data-turbo-refresh-animate>
   <div class="d-flex justify-content-between align-items-center">
     <div class="d-flex align-items-center gap-2">
       <%= form_with(model: [item.list, item], class: "d-flex align-items-center") do |form| %>
