@@ -1,53 +1,57 @@
 class ItemsController < ApplicationController
+  before_action :set_list
   before_action :set_item, only: %i[ show edit update destroy ]
 
-  # GET /items/1
+  # GET /lists/:list_id/items/1
   def show
   end
 
-  # GET /items/new
+  # GET /lists/:list_id/items/new
   def new
-    @item = Item.new
+    @item = @list.items.build
   end
 
-  # GET /items/1/edit
+  # GET /lists/:list_id/items/1/edit
   def edit
   end
 
-  # POST /items
+  # POST /lists/:list_id/items
   def create
-    @item = Item.new(item_params)
+    @item = @list.items.build(item_params)
 
     if @item.save
-      redirect_to @item, notice: "Item was successfully created."
+      redirect_to @list
     else
       render :new, status: :unprocessable_content
     end
   end
 
-  # PATCH/PUT /items/1
+  # PATCH/PUT /lists/:list_id/items/1
   def update
     if @item.update(item_params)
-      redirect_to @item, notice: "Item was successfully updated.", status: :see_other
+      redirect_to @list, status: :see_other
     else
       render :edit, status: :unprocessable_content
     end
   end
 
-  # DELETE /items/1
+  # DELETE /lists/:list_id/items/1
   def destroy
     @item.destroy!
-    redirect_to items_path, notice: "Item was successfully destroyed.", status: :see_other
+    redirect_to @list, status: :see_other
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def item_params
-      params.expect(item: [ :list_id, :content, :completed ])
-    end
+  def set_list
+    @list = List.find(params[:list_id])
+  end
+
+  def set_item
+    @item = @list.items.find(params[:id])
+  end
+
+  def item_params
+    params.expect(item: [ :content, :completed ])
+  end
 end

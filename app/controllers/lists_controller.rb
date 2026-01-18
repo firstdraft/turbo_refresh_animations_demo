@@ -9,6 +9,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   def show
+    @item = @list.items.build
   end
 
   # GET /lists/new
