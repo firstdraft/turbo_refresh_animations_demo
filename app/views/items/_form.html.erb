@@ -1,17 +1,9 @@
 <%= form_with(model: [item.list, item]) do |form| %>
-  <% if item.errors.any? %>
-    <div class="alert alert-danger">
-      <h5><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h5>
-      <ul class="mb-0">
-        <% item.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="mb-2">
-    <%= form.text_field :content, class: "form-control", placeholder: "New item...", autofocus: true %>
+    <%= form.text_field :content, class: "form-control #{'is-invalid' if item.errors[:content].any?}", placeholder: "New item...", autofocus: true %>
+    <% if item.errors[:content].any? %>
+      <div class="invalid-feedback d-block"><%= item.errors[:content].first %></div>
+    <% end %>
   </div>
   <%= form.submit class: "btn btn-primary w-100" %>
 <% end %>

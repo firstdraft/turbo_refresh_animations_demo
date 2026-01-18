@@ -1,12 +1,22 @@
-<% content_for :title, "Editing list" %>
+<% content_for :title, "Edit list" %>
 
-<h1>Editing list</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+          <li class="breadcrumb-item"><%= link_to @list.title, @list %></li>
+          <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        </ol>
+      </nav>
 
-<%= render "form", list: @list %>
-
-<br>
-
-<div>
-  <%= link_to "Show this list", @list %> |
-  <%= link_to "Back to lists", lists_path %>
+      <div class="card">
+        <div class="card-header">Edit list</div>
+        <div class="card-body">
+          <%= render "form", list: @list %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

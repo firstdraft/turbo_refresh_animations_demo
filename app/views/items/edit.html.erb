@@ -1,12 +1,22 @@
 <% content_for :title, "Editing item" %>
 
-<h1>Editing item</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+          <li class="breadcrumb-item"><%= link_to @list.title, @list %></li>
+          <li class="breadcrumb-item active" aria-current="page">Edit item</li>
+        </ol>
+      </nav>
 
-<%= render "form", item: @item %>
-
-<br>
-
-<div>
-  <%= link_to "Show this item", @item %> |
-  <%= link_to "Back to items", items_path %>
+      <div class="card">
+        <div class="card-header">Edit item</div>
+        <div class="card-body">
+          <%= render "form", item: @item %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

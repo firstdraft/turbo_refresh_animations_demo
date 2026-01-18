@@ -28,8 +28,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to lists_url
     else
-      @lists = List.order(:created_at)
-      render :index, status: :unprocessable_content
+      render :new, status: :unprocessable_content
     end
   end
 
