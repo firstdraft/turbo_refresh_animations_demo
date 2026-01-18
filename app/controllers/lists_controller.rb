@@ -26,7 +26,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
-      redirect_to lists_url
+      redirect_to lists_url, status: :see_other
     else
       render :new, status: :unprocessable_content
     end

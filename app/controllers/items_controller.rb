@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     @item = @list.items.build(item_params)
 
     if @item.save
-      redirect_to @list
+      redirect_to @list, status: :see_other
     else
       render :new, status: :unprocessable_content
     end
