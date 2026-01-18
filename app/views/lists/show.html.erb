@@ -28,7 +28,7 @@
           <% @list.items.order(:created_at).each do |item| %>
             <%= render item %>
           <% end %>
-          <div class="list-group-item">
+          <div class="list-group-item" id="new_item_form" data-turbo-refresh-stream-permanent>
             <%= render "items/form", item: @item %>
           </div>
         </div>
